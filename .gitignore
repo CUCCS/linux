@@ -31,3 +31,8 @@
 # Debug files
 *.dSYM/
 *.su
+
+# Backup/Temp files
+*.bak
+.DS_Store
+*.sw*
