@@ -10,19 +10,19 @@
 4.psftp.exe  
 ####实验步骤： 
 1. 在VirtualBoxs上安装虚拟机，并创建用户名和密码。
-![Alt text]("1.png")  
+![Alt text](1.png)  
 2.在Virtual Box全局设定内添加一块网卡（Host-only网络）  
-![Alt text]("18.png")  
+![Alt text](18.png)  
 3.打开虚拟机，激活新添加的网卡。  
-![Alt text]("2.png")  
-![Alt text]("19.png")  
+![Alt text](2.png)  
+![Alt text](19.png)  
 4.为新添加的网卡分配IP地址。
-![Alt text]("20.png")     
+![Alt text](20.png)     
 5.安装OpenSSh Server。（在自己电脑上安装的镜像没有自带ssh软件，需要自行下载安装包）  
 6.启动ssh服务。  
 7.使用putty对虚拟机进行远程连接。         
- ![Alt text]("21.png")  
- ![Alt text]("3.png")  
+ ![Alt text](21.png)  
+ ![Alt text](3.png)  
  如图所示，显示远程连接成功，现在我们就可以在宿主机上通过putty远程连接到虚拟机，因为putty支持复制粘贴，这样就大大的方便了我们的操作。    
 8.在当前用户目录下创建一个用于挂载iso镜像文件的目录-mkdir loopdir  
 9.挂载iso镜像文件到该目录-mount -o loop ubuntu-16.04.1-server-amd64.iso loopdir  
@@ -35,17 +35,17 @@
   menu label ^Auto Install Ubuntu Server  
   kernel /install/vmlinuz  
   append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_US console-setup/  layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet  
-![Alt text]("5.png")  
+![Alt text](5.png)  
 15.阅读并编辑定制Ubuntu官方提供的示例preseed.cfg，并将该文件保存到刚才创建的工作目录  
-![Alt text]("6.png")  
+![Alt text](6.png)  
 16.重新生成md5sum.txt，并封闭改动后的目录到.iso。  
-![Alt text]("11.png")  
-![Alt text]("10.png")  
+![Alt text](11.png)  
+![Alt text](10.png)  
 17.最后使用psftp将修改好的镜像从虚拟机下载到宿主机。  
-![Alt text]("15.png")  
-![Alt text]("16.png")
-![Alt text]("7.png")      
-![Alt text]("17.png")  
+![Alt text](15.png)  
+![Alt text](16.png)
+![Alt text](7.png)      
+![Alt text](17.png)  
 至此，无人值守Linux安装镜像制作就完成了。  
 ##实验总结：
 1.使用putty远程操作可以大大减少操作的繁琐度  
