@@ -10,13 +10,13 @@
 4.psftp.exe  
 ####实验步骤： 
 1. 在VirtualBoxs上安装虚拟机，并创建用户名和密码。
-![Alt text](1.png)  
+![Alt text](1.PNG)  
 2.在Virtual Box全局设定内添加一块网卡（Host-only网络）  
 ![Alt text](18.png)  
 3.打开虚拟机，激活新添加的网卡。  
-![Alt text](2.png)  
+![Alt text](2.PNG)  
 ![Alt text](19.png)  
-4.为新添加的网卡分配IP地址。
+4.为新添加的网卡分配IP地址
 ![Alt text](20.png)     
 5.安装OpenSSh Server。（在自己电脑上安装的镜像没有自带ssh软件，需要自行下载安装包）  
 6.启动ssh服务。  
