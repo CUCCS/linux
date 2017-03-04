@@ -5,26 +5,26 @@
 2. 用ifconfig -a查看网络接口配置信息，开启Host-only网卡并开启dhcp  
 	![](img/3.png)![](img/4.png)  
 3. 开启ssh服务  
-	> sudo apt-get install openssh-server  
-	> sudo service ssh open  
-4. 使用putty远程登录，使用psftp传输文件
-	![](img/6.png)  
+ sudo apt-get install openssh-server  
+ sudo service ssh open  
+4. 使用putty远程登录，使用psftp传输文件  
+![](img/6.png)  
 5. 在当前用户目录下创建一个用于挂载iso镜像文件的目录  
-	> mkdir loopdir  
+	mkdir loopdir  
 6. 挂载iso镜像文件到该目录  
-	> sudo mount -o loop ubuntu-16.04.1-server-amd64.iso loopdir  
+	sudo mount -o loop ubuntu-16.04.1-server-amd64.iso loopdir  
 7. 创建一个工作目录用于克隆光盘内容  
-	> mkdir cd  
+	mkdir cd  
 8. 同步光盘内容到目标工作目录,一定要注意loopdir后的这个/，cd后面不能有/  
-	> sudo rsync -av loopdir/ cd  
+	sudo rsync -av loopdir/ cd  
 9. 卸载iso镜像  
-	> sudo umount loopdir  
+	sudo umount loopdir  
 10. 进入目标工作目录  
-	> cd cd/  
+	cd cd/  
 11. 编辑Ubuntu安装引导界面增加一个新菜单项入口,强制保存:x!    
-	> sudo vim isolinux/txt.cfg  
+	sudo vim isolinux/txt.cfg  
 
-![](img/7.png)
+![](img/7.png)  
 12. 将ubuntu-server-autoinstall.seed通过psftp传输到虚拟机，并保存到刚才创建的工作目录~/cd/preseed/ubuntu-server-autoinstall.seed   
 13. 修改isolinux/isolinux.cfg，增加内容timeout 10，并重新生成md5sum.txt    
 ![](img/8.png)  
@@ -35,26 +35,25 @@
 15. 封闭改动后的目录到.iso  
 	sudo apt-get insatll mkisofs  
 	sudo bash save.sh  
-![](img/10.png)
+![](img/10.png)  
 
-## 三、实验问题及解决方法
+## 三、实验问题及解决方法  
 * Virtualbox安装完Ubuntu之后新添加的网卡如何实现系统开机自动启用和自动获取IP  
-	* 修改/etc/network/interfaces文件
+	* 修改/etc/network/interfaces文件  
 	![](img/11.png)  
 	* 参考链接：https://www.cnblogs.com/yudar/p/4446975.html  
 * 如何使用sftp在虚拟机和宿主机之间传输文件  
-	* 使用psftp传输文件
+	* 使用psftp传输文件  
 		![](img/5.png)  
-	* 使用共享文件夹：安装VirtualBox增强功能，挂载虚拟文件夹
-		* $sudo mount -t vboxsf xxx /mnt
-		* 参考链接：http://jingyan.baidu.com/article/b2c186c8ffb607c46ff6ff61.html  
+	* 使用共享文件夹：安装VirtualBox增强功能，挂载虚拟文件夹(参考链接：http://jingyan.baidu.com/article/b2c186c8ffb607c46ff6ff61.html)  
+  
 ## 四、对比ubuntu-server-autoinstall.seed与官方示例文件  
-![](img/12.png)
-1. 指定多个语言环境  
-2. 跳过语言选择器设置  
-*** 
-![](img/13.png)  
-1. 设置链路检测超时为5s  
+![](img/12.png)   
+1.指定多个语言环境  
+2.跳过语言选择器设置  
+***   
+![](img/13.png)   
+1. 设置链路检测超时为5s 
 2. DHCP服务超时和安装程序超时设置为5s  
 3. 设置为手动配置网络  
 *** 
@@ -81,15 +80,15 @@
 2. 选择预定义的分区方法(共三种)：multi  
 3. multi：分成/home，/var和/tmp三个分区  
 ***
-![](img/20.png)
+![](img/20.png)  
 1. 设置不使用网络镜像  
 ***
-![](img/21.png)
+![](img/21.png)  
 1. 软件包平台server  
 2. 自定义安装的附加软件包openssh-server  
 3. 设置软件包不自动升级  
 *** 
-![](img/22.png)
+![](img/22.png)  
 1. 应用更新的策略：可能是“无”（无自动更新），“无人值守升级”（自动安装安全更新）或“横向”（使用Landscape管理系统）  
 2. 此处设置为“无人值守升级”  
 
