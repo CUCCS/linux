@@ -38,12 +38,14 @@ PSFTP是PuTTY SFTP客户端，用于本地与服务器间安全传输文件（�
  
 #####3..打开PuTTY和PSTFP
 目标IP地址为刚才动态分配地址：192.168.56.101  
-新建session并保存打开    
-![](image001.png)
-登录账号：cuc  
-密码：sec.cuc.edu.cn 
+新建session并保存打开  
+![](image001.png)  
+登录账号:cuc  
+密码:sec.cuc.edu.cn  
+
 ![](image002.png)  
-打开PSTFP使用`open IP`方式连接  
+
+打开PSTFP使用`open IP`方式连接    
 ![](image003.png)
 
 > 这样就可以使用剪贴板
