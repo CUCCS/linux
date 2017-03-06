@@ -18,7 +18,7 @@
 	![](https://github.com/Hiri3024/Aloha/blob/master/配置前的网卡.png)  
 	+ 配置后：  
 	![](https://github.com/Hiri3024/Aloha/blob/master/配置后的网卡.png)  
-	+ 使用命令
+	+ 使用命令dhclient.  
 + 挂载镜像并创建工作目录
 	+ mkdir loopdir：  
 	在当前用户目录下创建一个用于挂载iso镜像文件的目录  
