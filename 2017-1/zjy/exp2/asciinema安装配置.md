@@ -18,17 +18,17 @@
 
 asciinema auth 进行认证
 
-![](/2-2.png)
+![](image/2-2.png)
 
 试了试没用，再上传视频还是到一个utitled
 
 找到 /.config/asciinema/config
 
-![](/2-1.png)
+![](image/2-1.png)
 
 于是我在config文件里面加了这些参数
 
-![](/2-3.png)
+![](image/2-3.png)
 
 反复折腾还是没用，甚至更糟糕了，视频都打不开
 最后，我在上传视频之后auth了一次再一次auth，终于关联成功！
