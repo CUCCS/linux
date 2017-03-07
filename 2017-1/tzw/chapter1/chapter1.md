@@ -21,14 +21,14 @@
 		* 首先需要在ubuntu设置双网卡
 			* 宿主机添加host-only网卡，宿主机地址:192.168.112.1
 			* `vim /etc/network/interfaces`配置第二块网卡192.168.112.10
-				* ![](image\1.PNG)
+				* ![](image/1.PNG)
 			* 完成后ifconfig查看
-				* ![](image\2.PNG)
+				* ![](image/2.PNG)
 		* ubuntu中安装ssh `apt-get install ssh`
 		* windows中配置putty 
-			* ![](image\3.PNG)
+			* ![](image/3.PNG)
 		* 完成ssh链接
-			* ![](image\4.PNG)
+			* ![](image/4.PNG)
 * 创建iso镜像	
 	* 使用当前用户下载ubuntu-server镜像
 		* `wget http://sec.cuc.edu.cn/ftp/iso/ubuntu-16.04.1-server-amd64.iso`
@@ -36,7 +36,7 @@
 		* `mkdir loopdir`
 	* 挂载iso镜像文件到该目录
 		* `mount -o loop ubuntu-16.04.1-server-amd64.iso loopdir`
-		* ![](image\5.PNG)
+		* ![](image/5.PNG)
 	* 创建一个工作目录用于克隆光盘内容
 		* `mkdir cd`
 	* 同步光盘内容到目标工作目录
@@ -45,36 +45,36 @@
 		* `umount loopdir`
 	* 进入目标工作目录
 		* `cd cd/`
-		* ![](image\6.PNG)
+		* ![](image/6.PNG)
 	* 编辑Ubuntu安装引导界面增加一个新菜单项入口
 		* `vim isolinux/txt.cfg`
 	* 添加以下内容到该文件后强制保存退出(wq!)
-		* ![](image\7.PNG)
+		* ![](image/7.PNG)
 	* 提前阅读并编辑定制Ubuntu官方提供的示例preseed.cfg，并将该文件保存到刚才创建的工作目录~/cd/preseed/ubuntu-server-autoinstall.seed
-		* ![](image\8.PNG)
+		* ![](image/8.PNG)
 	* 修改isolinux/isolinux.cfg，增加内容timeout 10（可选，否则需要手动按下ENTER启动安装界面）
-		* ![](image\9.PNG)
+		* ![](image/9.PNG)
 	* 重新生成md5sum.txt
 		* `cd ~/cd && find . -type f -print0 | xargs -0 md5sum > md5sum.txt`
-		* ![](image\10.PNG)
+		* ![](image/10.PNG)
 	* 建立shell脚本文件，并添加以下内容
-		* ![](image\11.PNG)
+		* ![](image/11.PNG)
 		* 注意此处BUILD变量中的路径可以直接写为绝对路径，因为当前的用户为root
 	* 执行shell脚本文件，完成镜像刻录
 		* bash shell
-		* ![](image\12.PNG)
+		* ![](image/12.PNG)
 		* 可以看到已经生成了custom.ios文件
-		* ![](image\13.PNG)
+		* ![](image/13.PNG)
 	* 最终使用winSCP将iso文件导出即可
-		* ![](image\14.PNG)
+		* ![](image/14.PNG)
 * 使用无人值守iso安装虚拟机
 	* 在安装选项中可以看到增添的Auto Install Ubuntu Server
-	*  ![](image\16.PNG)
+	*  ![](image/16.PNG)
 	*  使用其进行安装，即可略过人机交互，使用先前设定好的选项进行安装，实现了无人值守。
 
 ### 重要问题
 * 老师定制的ubuntu-server-autoinstall.seed与官方用例区别解释
-	* ![](image\15.PNG)
+	* ![](image/15.PNG)
 	* locales设置：
 		* 解释：语言设置选项。设置了中美两国的语言环境
 		* d-i localechooser/supported-locales multiselect en_US.UTF-8, zh_CN.UTF-8
@@ -122,15 +122,15 @@
 		* d-i pkgsel/upgrade select none
 		* d-i pkgsel/update-policy select unattended-upgrades
 	* 完成安装后：
-		* ![](image\17.PNG)
+		* ![](image/17.PNG)
 * Virtualbox安装完Ubuntu之后新添加的网卡如何实现系统开机自动启用和自动获取IP
 	* 在宿主机中设置host-only的dhcp服务器
-		* ![](image\18.PNG)
-		* ![](image\19.PNG)
+		* ![](image/18.PNG)
+		* ![](image/19.PNG)
 	* 重启虚拟机，配置/etc/network/interfaces文件
-		* ![](image\20.PNG)
+		* ![](image/20.PNG)
 	* 再次重启即可
-		* ![](image\21.PNG)
+		* ![](image/21.PNG)
 
 ### 参考链接
 * [ubuntu网卡设置]("https://bowerstudios.com/node/1015")
