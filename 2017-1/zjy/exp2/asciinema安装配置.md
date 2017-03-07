@@ -16,13 +16,13 @@
 
 [认证文档](https://asciinema.org/docs/config)
 
-1. asciinema auth 进行认证
+asciinema auth 进行认证
 
 ![](/2-2.png)
 
 试了试没用，再上传视频还是到一个utitled
 
-2. 找到 /.config/asciinema/config
+找到 /.config/asciinema/config
 
 ![](/2-1.png)
 
@@ -31,9 +31,6 @@
 ![](/2-3.png)
 
 反复折腾还是没用，甚至更糟糕了，视频都打不开
-
 最后，我在上传视频之后auth了一次再一次auth，终于关联成功！
-
 为啥每次我都被这种问题纠缠好久，写下来留个纪念！
-
 终于可以做vimtutor了
