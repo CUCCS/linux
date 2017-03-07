@@ -40,8 +40,6 @@ PSFTP是PuTTY SFTP客户端，用于本地与服务器间安全传输文件（�
 目标IP地址为刚才动态分配地址：192.168.56.101  
 新建session并保存打开  
 ![](image001.png)  
-登录账号:cuc  
-密码:sec.cuc.edu.cn  
 
 ![](image002.png)  
 
