@@ -248,3 +248,14 @@ If you wanted to Install this in terminal you would need to run this command.
 
 
 
+### Problem 7 ssh 免密登录
+
+1. Load session, 在Data->Auto-Login username写入远程主机名。
+2. 用keygen.exe在Windows本地主机生成公私钥对。key passphrase处填写ubuntu远程主机的登录口令。
+3. 在PUTTY.EXE的SSH->Auth->Private key file for authentication添加私钥。
+4. 用psftp将公钥传输到远程主机~/.ssh/authorized_keys。
+5. Save session。 
+
+实现密码登陆：
+
+![](images/pass_free.png)
