@@ -26,6 +26,8 @@
 
 配置过程详见problem 1。
 
+* [VirtualBox’s host-only adapter](http://samiam.org/blog/20130826.html)
+
 
 ## 实验过程
 
@@ -224,6 +226,8 @@ Click on Using x86 visualization solution
 
 Then click on apply Changes  
 
+在CLI中，上述方法无法实现图形界面的交互。因此选择从命令行安装增强功能套件。
+
 If you wanted to Install this in terminal you would need to run this command.  
 
 	sudo apt-get install virtualbox-guest-dkms 
@@ -246,16 +250,19 @@ If you wanted to Install this in terminal you would need to run this command.
 
 * [Virtualbox虚拟机Ubuntu共享文件夹设置 自动挂载](http://blog.csdn.net/taochangchang/article/details/12918537)
 
+虽然上述方法可以使远程共享通过/mnt/shared目录使用，但是只能以root身份执行mount命令。  如果是对于普通用户，就无法在这样挂载的目录中写入数据。  
 
+
+* [第12章 使用Samba或NFS实现文件共享](http://www.linuxprobe.com/chapter-12.html)
 
 ### Problem 7 ssh 免密登录
 
-1. Load session, 在Data->Auto-Login username写入远程主机名。
-2. 用keygen.exe在Windows本地主机生成公私钥对。key passphrase处填写ubuntu远程主机的登录口令。
+1. Load session, 在Data->Auto-Login username写入远程主机的用户名。
+2. 用PUTGEN.EXE在Windows本地主机生成公私钥对。key passphrase处填写ubuntu远程主机的登录口令。
 3. 在PUTTY.EXE的SSH->Auth->Private key file for authentication添加私钥。
 4. 用psftp将公钥传输到远程主机~/.ssh/authorized_keys。
 5. Save session。 
 
-实现密码登陆：
+实现免密登陆：
 
 ![](images/pass_free.png)
