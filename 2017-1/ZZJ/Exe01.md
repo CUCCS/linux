@@ -46,27 +46,26 @@ label autoinstall
   append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_US console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet
 ```
 > ###阅读并编辑定制Ubuntu官方提供的示例preseed.cfg，并将该文件保存到刚才创建的工作目录。通过psftp put和putty move，将.seed移入cd/proceed中
-	>`~/cd/preseed/ubuntu-server-autoinstall.seed`
+>~/cd/preseed/ubuntu-server-autoinstall.seed
 >![picr](https://github.com/cuczj/picr/blob/master/1-5.jpg)
 >
 >![picr](https://github.com/cuczj/picr/blob/master/1-16.jpg)
 >
 > ###修改isolinux/isolinux.cfg，增加内容timeout 10（可选，否则需要手动按下ENTER启动安装界面）
->>修改md5sum的权限，改为任何人都可以读写运行（这步是不正确的）
+>>修改md5sum的权限
 ```sudo chmod 777 md5sum.txt```
 
 >> 重新生成md5sum.txt
 ```
-cd ~/cd && find . -type f -print0 | xargs -0 md5sum > md5sum.txt```
+cd ~/cd && find . -type f -print0 | xargs -0 md5sum > md5sum.txt
 
->>####新建touch test.sh。在cuc用户权限下，不能直接运行修改脚本内容，这时改进方法有两种，一种是切换到root状态下，这样就有管理员的权限，另一种是在cuc用户的权限下，将改动的脚本放在新建bash中，直接运行文件（这是出现的问题之一，通过同学解答）
+>>新建touch test.sh。在cuc用户权限下，不能直接运行修改脚本内容，这时改进方法有两种，一种是切换到root状态下，这样就有管理员的权限，另一种是在cuc用户的权限下，将改动的脚本放在新建bash中，直接运行文件（这是出现的问题之一，通过同学解答）
+![picr](https://github.com/cuczj/picr/blob/master/1-6.jpg)
 
->>![picr](https://github.com/cuczj/picr/blob/master/1-6.jpg)
-
->>![picr](https://github.com/cuczj/picr/blob/master/1-11.jpg)
+![picr](https://github.com/cuczj/picr/blob/master/1-11.jpg)
 >
 >> 封闭改动后的目录到.iso
-```
+>
 >> IMAGE=custom.iso
 >
 >> BUILD=~/cd/
@@ -79,7 +78,7 @@ cd ~/cd && find . -type f -print0 | xargs -0 md5sum > md5sum.txt```
             -o $IMAGE $BUILD
 
 >> (如果目标磁盘之前有数据，则在安装过程中会在分区检测环节出现人机交互对话框需要人工选择)
-```
+
 >![picr](https://github.com/cuczj/picr/blob/master/1-17.jpg)
 >
 ###生成.iso文件，即可使用其进行自动安装
@@ -88,10 +87,9 @@ cd ~/cd && find . -type f -print0 | xargs -0 md5sum > md5sum.txt```
 ## 出现问题
 >### 出现最多的是权限问题，上文中都有提到。例如：
 >![picr](https://github.com/cuczj/picr/blob/master/1-9.jpg)
->主要参考篇目
->```
->[篇目一](http://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts)
->[篇目二](https://github.com/netson/ubuntu-unattended)```
 
+主要参考篇目
 
+[篇目一](http://askubuntu.com/questions/806820/how-do-i-create-a-completely-unattended-install-of-ubuntu-desktop-16-04-1-lts "篇目一")
 
+[篇目二](https://github.com/netson/ubuntu-unattended "篇目二")
