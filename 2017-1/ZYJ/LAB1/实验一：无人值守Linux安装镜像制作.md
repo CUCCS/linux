@@ -49,8 +49,6 @@ PSFTP是PuTTY SFTP客户端，用于本地与服务器间安全传输文件（�
 > 这样就可以使用剪贴板
 
 #####4.在虚拟机中登录
-用户名：cuc   
-密码：sec.cuc.edu.cn
 下载镜像
 `wget https://sec.cuc.edu.cn/ftp/iso/ubuntu-16.04.1-server-amd64.iso`
 
@@ -82,7 +80,7 @@ PSFTP是PuTTY SFTP客户端，用于本地与服务器间安全传输文件（�
      kernel /install/vmlinuz  
      append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_us console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet
 > 复制到default install 下面
-保存方式：按Esc后 输入**：wq** 或者 **：x**
+保存方式：按Esc后 输入**:wq** 或者 **:x**
 
 #####5.下载修改定制好的ubuntu-server-autoinstall.seed ，并将该文件保存到刚才创建的工作目录~/cd/preseed/ubuntu-server-autoinstall.seed
 使用PSFTP下载  
