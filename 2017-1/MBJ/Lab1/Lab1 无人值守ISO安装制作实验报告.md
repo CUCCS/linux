@@ -27,25 +27,25 @@ mount -o loop ubuntu-16.04.1-server-amd64.iso loopdir
 
 mkdir cd
 
-![2](/Users/mabingjie/Desktop/media/14896500944069/2.png)
+![2](2.png)
 
 **4.同步光盘内容到目标工作目录**
 
 rsync -av loopdir/ cd
 
-![3](/Users/mabingjie/Desktop/media/14896500944069/3.png)
+![3](3.png)
 
 **5.卸载iso镜像:**
 
 umount loopdir
 
-![4](/Users/mabingjie/Desktop/media/14896500944069/4.png)
+![4](4.png)
 
 **6.进入目标工作目录:**
 
 cd cd/
 
-![5](/Users/mabingjie/Desktop/media/14896500944069/5.png)
+![5](5.png)
 
 **7.编辑Ubuntu安装引导界面增加一个新菜单项入口:**    
 
@@ -60,15 +60,15 @@ label autoinstall
   append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_US console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet
 ```
 
-![6](/Users/mabingjie/Desktop/media/14896500944069/6.png)
+![6](6.png)
 
 **9.提前阅读并编辑定制Ubuntu官方提供的示例preseed.cfg，并将该文件保存到刚才创建的工作目录:  ~/cd/preseed/ubuntu-server-autoinstall.seed**
 
-![7](/Users/mabingjie/Desktop/media/14896500944069/7.png)
+![7](7.png)
 
 **10.修改isolinux/isolinux.cfg，增加内容timeout 10（可选，否则需要手动按下ENTER启动安装界面:**
 
-![8](/Users/mabingjie/Desktop/media/14896500944069/8.png)
+![8](8.png)
 
 **11.从host登陆虚拟机并完成操作**
 
@@ -89,14 +89,15 @@ mkisofs -r -V "Custom Ubuntu Install CD" \
 # 如果目标磁盘之前有数据，则在安装过程中会在分区检测环节出现人机交互对话框需要人工选择
 ```
 
-![9](/Users/mabingjie/Desktop/media/14896500944069/9.png)
+![9](9.png)
 
-![10](/Users/mabingjie/Desktop/media/14896500944069/10.png)
+![10](10.png)
 
 **12.导出镜像**
 
-##下载Custom.iso
+##下载Custom.iso    
+
 **新建虚拟机并完成安装**
-![11](/Users/mabingjie/Desktop/media/14896500944069/11.png)
+![11](11.png)
 
 
