@@ -1,5 +1,5 @@
-[命令篇](http://asciinema.org/a/0az1opg6xy13ivyghfzcwqbmt)
+[命令篇](https://asciinema.org/a/0az1opg6xy13ivyghfzcwqbmt)
 
  与  
  
-[实战篇](http://asciinema.org/a/7onm591ne3qkwbjczqi1klzwe)
+[实战篇](https://asciinema.org/a/7onm59lne3qkwbjczqi1klzwe)
