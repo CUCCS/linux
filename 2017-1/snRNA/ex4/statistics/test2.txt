@@ -1,0 +1,47 @@
+------Age Statistics----------  
+
+<20  count: 9 porprotion: 1.22 
+ 
+20-30  count: 600 porprotion: 81.52 
+ 
+>30  count: 127 porprotion: 17.25 
+ 
+------Position Statistics----------  
+
+position: Midfielder  count: 268   porprotion: 36.41 
+ 
+position: Goalie  count: 96   porprotion: 13.04 
+ 
+position: Forward  count: 135   porprotion: 18.34 
+ 
+position: Défenseur  count: 1   porprotion: .13 
+ 
+position: Defender  count: 236   porprotion: 32.06 
+ 
+------Longest Name Statistics----------  
+
+longgest name length : 26 
+name : 
+
+Francisco Javier Rodriguez
+Lazaros Christodoulopoulos
+Liassine Cadamuro-Bentaeba
+------Shortest Name Statistics----------  
+
+shortest name length : 3 
+name : 
+
+Jô
+------Youngest Statistics----------  
+
+yougest age : 18 
+name : 
+
+Fabrice Olinga
+Luke Shaw
+------Oldest Statistics----------  
+
+oldest age : 42 
+name : 
+
+Faryd Mondragon
