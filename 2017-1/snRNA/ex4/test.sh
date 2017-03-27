@@ -12,8 +12,25 @@ POSTFIX=""
 DIR=`pwd`
 # read the options
 
+useage()
+{
+  echo "Useage:bash test.sh  -d [directory] [option|option]"
+  echo "options:"
+  echo "  -d [directory]                assign the directory including the images you want to process,the script will create an output directory under"
+  echo "  -c                            change the png/svg to jpg image"
+  echo "  -r|--resize [width*height]    resize the image with resolution such as 700x700 or 50%x50%"
+  echo "  -q|--quality [number]         compress the quality of jpg images "
+  echo "  -w|watermark [watermark]      put the watermark on the images"
+  echo "  --prefix[prefix]              assign the prefix of the name of output images"
+  echo "  --postfix[postfix]            assign the postfix of the name of output images"
+}
+
 main()
 {
+
+if [[ "$H_FLAG" == "1" ]]; then
+    useage
+fi
 output=${DIR}/output
 mkdir -p $output
 
@@ -41,8 +58,8 @@ fi
 
 
 case "$IM_FLAG" in
-       1) images=`find $DIR -regex '.*\(jpg\|jpeg\)'` ;;
-       2) images=`find $DIR -regex '.*\(jpg\|jpeg\|png\|svg\)'` ;;
+       1) images=`find $DIR -maxdepth 1 -regex '.*\(jpg\|jpeg\)'` ;;
+       2) images=`find $DIR -maxdepth 1 -regex '.*\(jpg\|jpeg\|png\|svg\)'` ;;
 
 esac 
 
@@ -50,11 +67,11 @@ for CURRENT_IMAGE in $images; do
      filename=$(basename "$CURRENT_IMAGE")
      name=${filename%.*}
      suffix=${filename#*.}
-     if [[ "$suffix" == "png" ]]; then 
+     if [[ "$suffix" == "png" && "$C_FLAG" == "1" ]]; then 
        suffix="jpg"
      fi
-     if [[ "$suffix" == "svg" ]]; then
-       suffix="svg"
+     if [[ "$suffix" == "svg" && "$C_FLAG" == "1" ]]; then
+       suffix="jpg"
      fi
      savefile=${output}/${PREFIX}${name}${POSTFIX}.${suffix}
      temp=${command}" "${CURRENT_IMAGE}" "${savefile}
@@ -66,18 +83,6 @@ exit 0
 
 }
 
-useage()
-{
-  echo "Useage:bash test.sh  -d [directory] [option|option]"
-  echo "options:"
-  echo "-d [directory]                assign the directory including the images you want to process,the script will create an output directory under"
-  echo "-c                            change the png/svg to jpg image"
-  echo "-r|--resize [width*height]    resize the image with resolution such as 700x700 or 50%x50%"
-  echo "-q|--quality [number]         compress the quality of jpg images "
-  echo "-w|watermark [watermark]      put the watermark on the images"
-  echo "--prefix[prefix]              assign the prefix of the name of output images"
-  echo "--postfix[postfix]            assign the postfix of the name of output images"
-}
 
 TEMP=`getopt -o cr:d:q:w: --long quality:arga,directory:,watermark:,prefix:,postfix:,help,resize: -n 'test.sh' -- "$@"`
 eval set -- "$TEMP"
@@ -90,7 +95,7 @@ while true ; do
                 "") shift 2 ;;
                 *)RESOLUTION=$2 ; shift 2 ;;
             esac ;;
-        --help) echo "test"; shift ;;
+        --help) H_FLAG="1"; shift ;;
         -d|--directory)
             case "$2" in 
                 "") shift 2 ;;

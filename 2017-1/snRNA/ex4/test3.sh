@@ -68,11 +68,10 @@ exit 0
 
 url_host()
 {
-url=$1
 url="	"$url"	"
 echo -e "给定URL输出TOP 100访问来源主机 \n"
 temp="more +2 log/web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 10"
-echo $temp
+#echo $temp
 
 eval -- $temp
 exit 0
@@ -92,7 +91,7 @@ useage()
 }
 
 
-option=`getopt -o a,b,c,d,e,f: --long help --"$@"`
+option=`getopt -o a,b,c,d,e,f: --long help -n 'test.sh' -- "$@"`
 
 eval set -- "$option"
 
@@ -103,7 +102,7 @@ while true; do
 		-c) frequency_url_top ; shift ; break;;
 		-d) responsecode_stat ; shift ; break;;
 		-e) responsecode_top ; shift ; break;;
-		-f) url=$2; shift ; break ;;
+		-f) url=$2 ; url_host; shift ; break ;;
      	--help) useage ; shift ; break ;;
         --)shift; break ;;
  		*) echo "Internal error! see --help for more information"; exit 1 ;;
