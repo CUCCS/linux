@@ -60,7 +60,7 @@ name=$(eval -- $temp)
 
 echo -e "------Youngest Statistics----------  \n"
 
-echo -e "yougest age : ${young} \n"
+echo -e "yougest age : ${young} "
 echo -e "name : \n"
 
 IFS=$'\n' namearray=($name)
@@ -80,7 +80,7 @@ name=$(eval -- $temp)
 
 echo -e "------Oldest Statistics----------  \n"
 
-echo -e "oldest age : ${old} \n"
+echo -e "oldest age : ${old} "
 echo -e "name : \n"
 
 IFS=$'\n' namearray=($name)
@@ -98,7 +98,7 @@ name=$(eval -- $temp)
 
 echo -e "------Longest Name Statistics----------  \n"
 
-echo -e "longgest name length : ${long} \n"
+echo -e "longgest name length : ${long} "
 echo -e "name : \n"
 
 IFS=$'\n' namearray=($name)
@@ -114,7 +114,7 @@ name=$(eval -- $temp)
 
 echo -e "------Shortest Name Statistics----------  \n"
 
-echo -e "shortest name length : ${short} \n"
+echo -e "shortest name length : ${short} "
 echo -e "name : \n"
 
 IFS=$'\n' namearray=($name)
