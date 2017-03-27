@@ -4,6 +4,7 @@ URL="/ksc.html"
 
 # set arguement
 TEMP=`getopt -o hiuces: --long sourcehost,sourceip,frenquencyurl,responcecode,errorcode,specifiedurl:,help -n 'weblog.sh' -- "$@"`
+eval set -- "$TEMP"
 
 funSourceHost()
 {
@@ -60,7 +61,7 @@ funResponceCodeErr()
 funSpecifiedUrl()
 {
   url=""$URL""
-  temp="more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 10"
+  temp="more +2 web_log.tsv |grep \""'${url}'"\"|awk -F'\t' '{print "'$1'"}'|sort|uniq -c|sort -nr|head -n 100"
   eval -- $temp
   exit 0
 }
