@@ -95,7 +95,7 @@ while [ $# -gt 0 ]; do
 			      resolution_pct=$2 ; isCompressResolution="1" ; shift 2 ;;
                               
 
-        -w|--watermark)   echo "Option w, argument \`$2'" ;
+        -w|--watermark)       echo "Option w, argument \`$2'" ;
 			      text=$2 ; isTextWatermark="1"	 ; shift 2 ;;		  
 			     
    		  	       
