@@ -65,8 +65,8 @@ function age_stats
 
 function position_stats
 {	
-	num=$(more +2 worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $1}')
-	position=$(more +2 worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $2}')
+	num=$(sed -n '2,$ p' worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $1}')
+	position=$(sed -n '2,$ p' worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $2}')
 	n=($num)
 	p=($position)
         
