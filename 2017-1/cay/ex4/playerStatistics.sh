@@ -12,8 +12,7 @@ function age_stats
 	for n in $age
 		
 	do
-	
-		if [ $n != 'Age' ] ; then
+			if [ $n != 'Age' ] ; then
 
       			let sum+=1
 
@@ -24,7 +23,6 @@ function age_stats
       			if [ $n -ge 20 ] && [ $n -le 30 ] ; then 
 				let b+=1  
 			fi
-
       			if [ $n -gt 30 ] ; then 
 				let c+=1  
 			fi
@@ -65,8 +63,8 @@ function age_stats
 
 function position_stats
 {	
-	num=$(more +2 worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $1}')
-	position=$(more +2 worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $2}')
+	num=$(sed -n '2,$ p' worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $1}')
+	position=$(sed -n '2,$ p' worldcupplayerinfo.tsv|awk -F '\t' '{print $5}'|sort -r|uniq -c|awk '{print $2}')
 	n=($num)
 	p=($position)
         
