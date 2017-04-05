@@ -31,7 +31,7 @@ function Usage
 
 function compressQuality
 {
-    if [ -x "$1" ]; then  
+    if [ -f "$1" ]; then  
         $(convert "$1" -quality "$2"% "$3")
         echo " Compress "$1" into "$3"."   
     else  
@@ -41,7 +41,7 @@ function compressQuality
 
 function compressResolution
 {
-    if [ -x "$1" ]; then 
+    if [ -f "$1" ]; then 
         $(convert "$1" -resize "$2"% "$3")
         echo " Compress "$1" into "$3"."  
     else
@@ -51,7 +51,7 @@ function compressResolution
 
 function addTextWatermark
 {
-    if [ -x "$1" ]; then
+    if [ -f "$1" ]; then
         $(convert "$1" -draw "gravity east fill black  text 0,12 "$2" " "$3") 
         echo ""$3" contains the text:"$2""
     else 
@@ -61,7 +61,7 @@ function addTextWatermark
 
 function transFormat
 {
-    if [ -x "$1" ]; then 
+    if [ -f "$1" ]; then 
         $(convert "$1" "$2")
         echo "Transfer "$1" into "$2""
     else
