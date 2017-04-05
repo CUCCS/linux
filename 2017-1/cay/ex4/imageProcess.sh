@@ -31,42 +31,59 @@ function Usage
 
 function compressQuality
 {
-    $(convert $1 -quality $2% $3)
-    echo " Compress $1 into $3"      
+    if [ -x "$1" ]; then  
+        $(convert "$1" -quality "$2"% "$3")
+        echo " Compress "$1" into "$3"."   
+    else  
+        echo "No such a file "$1" exist."  
+    fi
 }
+
 function compressResolution
 {
-
-    $(convert $1 -resize $2% $3)
-    echo " Compress $1 into $3"  
-
+    if [ -x "$1" ]; then 
+        $(convert "$1" -resize "$2"% "$3")
+        echo " Compress "$1" into "$3"."  
+    else
+        echo "No such a file "$1" exist."
+    fi
 }
+
 function addTextWatermark
 {
-    $(convert $1 -draw "gravity east fill black  text 0,12 $2 " $3) 
-    echo "$3 contains the text:$2"
+    if [ -x "$1" ]; then
+        $(convert "$1" -draw "gravity east fill black  text 0,12 "$2" " "$3") 
+        echo ""$3" contains the text:"$2""
+    else 
+        echo "No such a file "$1" exist."
+    fi
 }
+
 function transFormat
 {
-    
-    $(convert $1 $2)
-    echo "Transer $1 into $2"
+    if [ -x "$1" ]; then 
+        $(convert "$1" "$2")
+        echo "Transfer "$1" into "$2""
+    else
+        echo "No such a file "$1" exist."
+    fi
 }
+
 function addPrefix
 {
     for name in `ls *`
-	do
-	cp $name $1.${name}
-	done
+    do
+        cp "$name" "$1"."$name"
+    done
 }
+
 function addSuffix
 {
     for name in `ls *`
         do
-        cp $name ${name}.$1
+        cp "$name" "$name"."$1"
         done
 }
-
 
 
 ####################### Main ############################
@@ -95,7 +112,7 @@ while [ $# -gt 0 ]; do
 			      resolution_pct=$2 ; isCompressResolution="1" ; shift 2 ;;
                               
 
-        -w|--watermark)       echo "Option w, argument \`$2'" ;
+        -w|--watermark)   echo "Option w, argument \`$2'" ;
 			      text=$2 ; isTextWatermark="1"	 ; shift 2 ;;		  
 			     
    		  	       

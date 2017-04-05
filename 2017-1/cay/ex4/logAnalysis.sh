@@ -46,9 +46,9 @@ function RespStats
 	echo -e
 	for i in $(seq 0 $(echo "${#count[@]}-1"|bc))
 	do
-		echo "Response Code: ${code[${i}]}"
-		echo "Response Count: ${count[${i}]}"
-		echo "Proportion: ${ratio[${i}]}%"
+		echo "Response Code: "${code[${i}]}" "
+		echo "Response Count: "${count[${i}]}" "
+		echo "Proportion: "${ratio[${i}]}" %"
 	done
 	echo -e
 
@@ -80,7 +80,7 @@ function RespStats
 	url="/images/NASA-logosmall.gif"
 	
 	echo -e
-	echo "----- # Top 100 hosts which visited $url # ------"
+	echo "----- # Top 100 hosts which visited "$url" # ------"
 	echo -e
 	echo "| frequency |"
 	echo -e 
