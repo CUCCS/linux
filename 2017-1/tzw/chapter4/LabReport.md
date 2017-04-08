@@ -48,11 +48,13 @@
 	* 遇到的问题
 		* 在处理年龄问题时会出现不同运动员年龄相同的情况，因此需要进行两次遍历过程
 		* 在遍历球员位置时发现后卫位置的两种表达方式："Défenseur"，"Defender"
-		* awk计算百分比时，无法输出float格式，因此选择四舍五入的方式进行计算
-			* i=int(pc); print (pc-i<0.5)?i:i+1
+		* awk计算百分比时，可以使用bc进行精确运算
+    		* Percentage=`echo "scale=2;$pre_Percentage/1" | bc`
+ 
 * 参考链接
 	* [awk官方文档](http://www.grymoire.com/Unix/Awk.html)
 	* [awk循环与条件语句](http://xb9he.bokee.com/6569997.html)
+	* [bc使用方法](http://man.linuxde.net/bc)
 
 ## 任务三
 * 任务描述
@@ -73,5 +75,7 @@
 		* head(用于输出前X条数据)
 	* 遇到的问题
 		* 在获取ip时，需要用正则表达式进行过滤，可以使用awk中的正则表达式表示方式进行编程实现。
+		* 对于获取字符串长度的方法进行了探究，但是因为bash脚本引用格式的限制，依旧未能成功尝试将echo -n | wc -m的方法使用到程序中。有待探究。
 * 参考链接
 	* [awk正则表达式](http://www.cnblogs.com/notlate/p/3894602.html)
+	* [Number of characters in a shell command's output](http://unix.stackexchange.com/questions/160497/number-of-characters-in-a-shell-commands-output)
