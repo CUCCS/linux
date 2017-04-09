@@ -8,7 +8,7 @@ funAgeRange()
 {
 # task 1:统计不同年龄区间范围（20岁以下、[20-30]、30岁以上）的球员数量、百分比
 
-age=$(more +2 worldcupplayerinfo.tsv | awk '{if($6<20)a+=1;else if($6>=20&&$6<=30)b+=1;else if($6>30)c+=1}END{print a,b,c}')
+age=$(more +2 worldcupplayerinfo.tsv | awk -F\\t '{if($6<20)a+=1;else if($6>=20&&$6<=30)b+=1;else if($6>30)c+=1}END{print a,b,c}')
 
 ageArray=($age)
 for i in $age ; do
@@ -54,29 +54,61 @@ done
 funPlayerName()
 {
 # task 3:名字最长的球员是谁？名字最短的球员是谁？
-nameArgu_1=$(more +2 worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{max=0}{if(length($9)>max)max=length($9)}END{print max}')
-maxLen=$nameArgu_1
 
-nameArgu_2=$(cat worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{i=0}{if(length($9)==mLen){n[i]=$9;i+=1}}END{for(a in n)print n[a]}' mLen=$maxLen)
+nameArgu_1=$(more +2 worldcupplayerinfo.tsv | awk -F\\t '{print $9}')
+IFS=$'\n' nameArgu_1=($nameArgu_1)
+maxLen=0
+for i in ${nameArgu_1[*]} ; do
+  count=$(echo -n $i | wc -m )
+  if [ $count -gt $maxLen ] ; then
+    maxLen=$count
+  fi
+done
+
+num=0
+maxName=()
+for i in ${nameArgu_1[*]} ; do
+  count=$(echo -n $i | wc -m)
+  if [ $count -eq $maxLen ] ; then
+    maxName[${num}]=$i
+    num=$((num+1))
+  fi
+done
+
+
+
 echo -e "\n             The Longest Name                \n"
 echo -e "1. The length of the longest name is $maxLen\n"
 echo -e "2. The longest name :\n"
-IFS=$'\n' nameArray=($nameArgu_2)
-for i in ${nameArray[*]} ; do
+for i in ${maxName[*]} ; do
   echo $i
 done
 
-nameArgu_3=$(cat worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{min=100}{if(length($9)<min)min=length($9)}END{print min}')
-minLen=$nameArgu_3
 
-nameArgu_4=$(cat worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{i=0}{if(length($9)==mLen){n[i]=$9;i+=1}}END{for(a in n)print n[a]}' mLen=$minLen)
+nameArgu_3=$(more +2 worldcupplayerinfo.tsv | awk -F\\t '{print $9}')
+IFS=$'\n' nameArgu_3=($nameArgu_3)
+minLen=100
+for i in ${nameArgu_3[*]} ; do
+  count=$(echo -n $i | wc -m )
+  if [ $count -lt $minLen ] ; then
+    minLen=$count
+  fi
+done
+num=0
+minName=()
+for i in ${nameArgu_3[*]} ; do
+  count=$(echo -n $i | wc -m)
+  if [ $count -eq $minLen ] ; then
+    minName[${num}]=$i
+    num=$((num+1))
+  fi
+done
 
 echo -e "\n              The Shortest Name                \n"
 echo -e "1. The length of the shortest name is $minLen\n"
 echo -e "2. The shortest name :\n"
 
-IFS=$'\n' nameArray=($nameArgu_4)
-for i in ${nameArray[*]} ; do
+for i in ${minName[*]} ; do
   echo $i
 done
 }

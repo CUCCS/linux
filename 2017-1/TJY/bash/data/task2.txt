@@ -1,18 +1,9 @@
-          The Position of Players             
-
-positiion          amount           proportion
-
-Midfielder               268                36.41%
-Defender               236                32.06%
-Forward               135                18.34%
-Goalie               96                13.04%
-Défenseur               1                .13%
                  The Age Range                
 
 range            amount             proportion
 <20              9                 1.22%
-20-30              540                 73.36%
->30              187                 25.40%
+20-30              600                 81.52%
+>30              127                 17.25%
           The Position of Players             
 
 positiion          amount           proportion
@@ -35,7 +26,7 @@ Liassine Cadamuro-Bentaeba
 
               The Shortest Name                
 
-1. The length of the shortest name is 3
+1. The length of the shortest name is 2
 
 2. The shortest name :
 

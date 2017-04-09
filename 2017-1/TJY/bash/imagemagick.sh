@@ -23,6 +23,10 @@ TEMP=`getopt -o a:i:q:s:w:e:o:t --long arga:,input:,qualify:,resize:,watermark:,
 main(){
 
 # build a new directory to save the output image
+if [ ! -d "$DIR" ] ; then
+  echo "No such file or directory"
+  exit 0
+fi
 OUTPUT=${DIR}/output
 mkdir -p $OUTPUT
 
