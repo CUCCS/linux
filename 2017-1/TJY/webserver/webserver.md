@@ -27,7 +27,7 @@
 	* sudo nginx -s reload  
 * 解决function allow_url_include问题：修改/etc/php/7.0/fpm/php.ini中的allow_url_include = On  
 * 重启php服务：sudo systemctl restart php7.0-fpm  
-* 添加reCAPTCHA key：修改/var/www/html/dvwa/config/config.inc.php中的数据库密码，在https://www.google.com/recaptcha/admin#list中生成公私钥，添加进config.inc.php中  
+* 添加reCAPTCHA key：修改/var/www/html/dvwa/config/config.inc.php中的数据库密码，在https://www.google.com/recaptcha/admin#list 中生成公私钥，添加进config.inc.php中  
 ![](img/dvwa_3.png)
 * 使/var/www/html/dvwa/hackable/uploads/和 /var/www/html/dvwa/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt可写：
 	* sudo chgrp www-data hackable/uploads  
@@ -65,7 +65,7 @@
 4. 自定义要求：对于目录/wp-json/wp/v2/users/，已登录用户可以访问，未登陆用户不可以访问，通过检查登陆认证cookie：wordpress_logged_in实现  
 ***  
 ## 五、相关配置文件  
-1. [WordPress配置文件](file/dafault)  
+1. [WordPress配置文件](file/default)  
 2. [DVWA配置文件](file/default_dvwa)  
 3. [VeryNginx配置文件](file/nginx.conf)  
 4. [VeryNginx规则](file/config.json)  
