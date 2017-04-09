@@ -55,6 +55,7 @@ young=$(more +2 log/worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{young=100}{if($6<=
 
 temp="more +2 log/worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{young="${young}";i=1}{if("'$6'"==young){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
 
+#$($temp)
 #echo $temp
 name=$(eval -- $temp)
 
@@ -91,34 +92,66 @@ for key in "${!namearray[@]}"; do echo "${namearray[$key]}"; done
 
 longgest_stat()
 {
-long=$(more +2 log/worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{max=0}{if(length($9)>max){max=length($9);}}END{print max}')
 
-temp="more +2 log/worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{long="${long}";i=1}{if(length("'$9'")==long){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
-name=$(eval -- $temp)
+name=$(more +2 log/worldcupplayerinfo.tsv | awk -F\\t '{print $9}') 
+long=0
+IFS=$'\n' namearray=($name)
+
+for i in ${namearray[*]} ; do
+  count=$(echo -n $i | wc -m )
+  if [ $count -gt $long ] ; then
+    long=$count
+  fi
+done
+
+num=0
+longarray=()
+for i in ${namearray[*]} ; do
+  count=$(echo -n $i | wc -m)
+  if [ $count -eq $long ] ; then
+    longarray[${num}]=$i
+    num=$((num+1))
+  fi
+done
 
 echo -e "------Longest Name Statistics----------  \n"
 
 echo -e "longgest name length : ${long} "
 echo -e "name : \n"
 
-IFS=$'\n' namearray=($name)
-for key in "${!namearray[@]}"; do echo "${namearray[$key]}"; done
+for key in "${!longarray[@]}"; do echo "${longarray[$key]}"; done
 
 }
 shortest_stat()
 {
-short=$(more +2 log/worldcupplayerinfo.tsv | awk -F\\t 'BEGIN{short=100}{if(length($9)<short){short=length($9);}}END{print short}')
 
-temp="more +2 log/worldcupplayerinfo.tsv | awk -F'\t' 'BEGIN{short="${short}";i=1}{if(length("'$9'")==short){name[i]="'$9'";i++}}END{for (a in name)print name[a]}'"
-name=$(eval -- $temp)
+name=$(more +2 log/worldcupplayerinfo.tsv | awk -F\\t '{print $9}') 
+short=100
+IFS=$'\n' namearray=($name)
+
+for i in ${namearray[*]} ; do
+  count=$(echo -n $i | wc -m )
+  if [ $count -lt $short ] ; then
+    short=$count
+  fi
+done
+
+num=0
+shortarray=()
+for i in ${namearray[*]} ; do
+  count=$(echo -n $i | wc -m)
+  if [ $count -eq $short ] ; then
+    shortarray[${num}]=$i
+    num=$((num+1))
+  fi
+done
 
 echo -e "------Shortest Name Statistics----------  \n"
 
 echo -e "shortest name length : ${short} "
 echo -e "name : \n"
 
-IFS=$'\n' namearray=($name)
-for key in "${!namearray[@]}"; do echo "${namearray[$key]}"; done
+for key in "${!shortarray[@]}"; do echo "${shortarray[$key]}"; done
 
 }
 
