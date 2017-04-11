@@ -28,7 +28,7 @@ Lazaros Christodoulopoulos
 Liassine Cadamuro-Bentaeba
 ------Shortest Name Statistics----------  
 
-shortest name length : 3 
+shortest name length : 2 
 name : 
 
 Jô

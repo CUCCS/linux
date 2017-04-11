@@ -31,6 +31,12 @@ main()
 if [[ "$H_FLAG" == "1" ]]; then
     useage
 fi
+
+if [ ! -d "$DIR" ] ; then
+  echo "No such directory"
+  exit 0
+fi
+
 output=${DIR}/output
 mkdir -p $output
 
@@ -118,3 +124,4 @@ done
 
 
 main
+
