@@ -7,13 +7,13 @@
 * Damn Vulnerable Web Application (DVWA)  
 ## 实验过程
 ### 安装verynginx
-1.先安装libpcre3-dev、libssl-dev和build-essential  
+1.先安装libpcre3-dev、libssl-dev和build-essential    
 2.根据[教程](https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md)安装verynginx  
 3.修改nginx.conf中的user改为www-data  
 4.配置ssl（配置ssl[参考链接](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04))
 ![](img/5.png)  
 ### 安装wordpress  
-1.修改nginx配置文件，使其监听127.0.0.1:8080 和 127.0.0.1:4433
+1.修改nginx配置文件，使其监听127.0.0.1:8080 和 127.0.0.1:4433  
 2.安装LEMP环境（[参考链接](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04)）  
 3.安装wordpress
 ![](img/9.png)
