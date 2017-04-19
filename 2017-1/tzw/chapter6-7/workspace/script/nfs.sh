@@ -1,14 +1,22 @@
 # nfs-server install
 source ./script/global_conf.sh
 apt-get install nfs-kernel-server -y
-echo "NFS server installed"
+ret=$? && [[ $ret -eq 0 ]] || {
+	echo "NFS server installed with ret code $ret"
+}
 
 # Backup the original conf
-mv /etc/exports $server_nfs_bak/exports.bak
-echo "Backup conf finished"
+if [ ! -f "/etc/exports" ]; then
+  echo "(nfs)original file /etc/exports does not exist"
+  exit $ERROR_CODE
+else
+  mv "/etc/exports" "$server_nfs_bak/exports.bak"
+fi
 
 # Add the new conf
-cp $server_nfs_conf/exports /etc/exports
-echo "New conf added"
-
-echo "NFS PART FINISHED"
+if [ ! -f "$server_nfs_conf/exports" ]; then
+  echo "(nfs)new file /$server_nfs_conf does not exist"
+  echo $ERROR_CODE
+else
+  cp "$server_nfs_conf/exports" "/etc/exports"
+fi
