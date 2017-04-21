@@ -18,7 +18,7 @@ sed 's/server_net_interface/'$server_net_interface'/g' conf_origin/dhcp/isc-dhcp
 # CHANGE_DNS_CONF
 sed 's/client_ip_mark/'$client_internal_ip'/g' conf_origin/dns/named.conf.options > conf/dns/named.conf.options
 cp conf_origin/dns/named.conf.local conf/dns/named.conf.local
-cp conf_origin/dns/db.cuc.edu.cn
+cp conf_origin/dns/db.cuc.edu.cn conf/dns/named.conf.local
 # CHANGE_NFS_CONF
 sed 's/client_ip_mark/'$client_internal_ip'/g' conf_origin/nfs/exports > conf/nfs/exports
 
