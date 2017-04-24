@@ -185,6 +185,22 @@ client端
   
  
 ### 一键部署  
+
+#### 前期准备
+
+在目标机上修改root密码（默认为空）  
+编辑sshd_config文件，修改PermitRootLogin yes,是root用户可以远程登录  
+mkdir /root/.ssh
+touch /root/.ssh/authorized_keys
+chmod 600 -R /root/.ssh
+重启 ssh 服务
+
+在远程部署的主机上  
+
+切换到root 用户  
+创建公钥
+安装 expect
+bash main.sh
  
 - shell文件夹中的vars.sh 定义许多变量，是一键部署的配置文件。  
 - configs中是已经采用大写变量挖空的待配置的各服务的配置文件。  
