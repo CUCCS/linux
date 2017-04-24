@@ -1,0 +1,15 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	cuc.edu.cn. admin.cuc.edu.cn. (
+			      2		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+	IN	NS	ns.cuc.edu.cn.
+ns	IN	A	INTERNAL_IP
+wp.sec.cuc.edu.cn.	IN	A	INTERNAL_IP
+dvwa.sec.cuc.edu.cn.	IN	CNAME	wp.sec.cuc.edu.cn.
