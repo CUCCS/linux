@@ -8,7 +8,8 @@
 
 ## 一，实验环境
 
-* Ubuntu16.04 desktop（3台）
+* Ubuntu16.04 desktop （3台）
+       
        * verynginx（设置双网卡）：
            * NAT网络：10.0.2.8
            * host-only： 192.168.92.101
@@ -32,16 +33,16 @@
       * 将/opt/verynginx/openresty/nginx/conf/nginx.conf文件下的user nginx修改为user www-data   
     
     * 搭建完成！
-    * ![](image/1.png)
-    * ![](image/2.png)
+    ![](image/1.png)
+    ![](image/2.PNG)
 
 * **安装WordPress**
    *  在安装WordPress之前需要先安装Nginx+PHP7.0+MySQL（LEMP） 详情参见[LEMP配置教程](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04)
    *  [wordpress安装教程](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04)
    *  【**注意事项**】
      * 关于WordPress的HTTPS搭建，详情参见[nginx 自签发证书制作](https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04)  
-     * 还有一点就是，为了使得使用Wordpress搭建的站点对外提供访问的地址为： https://wp.sec.cuc.edu.cn 和 http://wp.sec.cuc.edu.cn 还需配置一下服务器的hosts文件，添加以下内容
-      ![](image/8.png)
+     *  还有一点就是，为了使得使用Wordpress搭建的站点对外提供访问的地址为： https://wp.sec.cuc.edu.cn 和 http://wp.sec.cuc.edu.cn 还需配置一下服务器的hosts文件，构建IP和相应域名的映射关系
+    
    *  安装完成
    ![](image/3.png)
    * 完成功能点（使用Wordpress搭建的站点对外提供访问的地址为： https://wp.sec.cuc.edu.cn和 http://wp.sec.cuc.edu.cn）
