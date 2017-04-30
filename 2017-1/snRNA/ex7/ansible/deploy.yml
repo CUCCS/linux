@@ -1,0 +1,13 @@
+---
+- name: Install proftpd nfs samba dhcp dns
+  hosts: targethost
+  remote_user: root
+
+
+  roles: 
+   - profptd
+   - nfs
+   - samba
+   - dhcp
+   - dns
+   - restart

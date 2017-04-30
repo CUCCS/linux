@@ -1,0 +1,12 @@
+---
+- name: restart proftpd
+  shell: service proftpd restart
+
+- name: restart dchp
+  shell: service isc-dhcp-server restart
+
+- name: restart nfs
+  shell: service nfs-kernel-server restart
+
+- name: restart dns
+  shell: service bind9 restart
