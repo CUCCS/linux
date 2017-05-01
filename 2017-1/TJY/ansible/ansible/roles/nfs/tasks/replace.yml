@@ -1,0 +1,6 @@
+---
+
+- name: alter and copy exports
+  template: src=exports dest=/etc/exports backup=yes
+  notify:
+    - nfs-kernel-server restart
