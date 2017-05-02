@@ -1,0 +1,32 @@
+---
+- name: Install proftpd
+  apt: 
+    name: proftpd-basic
+    state: present
+
+- name: mkdir /home/virtualuser
+  file:
+    path: /home/{{ FTP_USER }}
+    owner: 1024
+    group: 1024
+    mode:  0700
+    state: directory
+
+- name: mkdir /usr/local/etc/proftpd
+  file:
+    path: /usr/local/etc/proftpd
+    state: directory
+
+- name: ftpasswd user
+  shell: echo {{ FTP_PASS }}|ftpasswd --passwd --file=/usr/local/etc/proftpd/passwd --name={{ FTP_USER }} --uid=1024 --home=/home/{{ FTP_USER }} --shell=/bin/false --stdin
+ 
+- name: ftpgroup
+  shell: ftpasswd --file=/usr/local/etc/proftpd/group --group --name=virtualusers --gid=1024
+
+- name: add ftpuser to ftpgroup
+  shell: ftpasswd --group --name=virtualusers --gid=1024 --member={{ FTP_USER }} --file=/usr/local/etc/proftpd/group
+           
+- name: copy configuration
+  template: src=proftpd.conf dest=/etc/proftpd/proftpd.conf backup=yes
+  notify: 
+    - proftpd restart
