@@ -1,0 +1,7 @@
+---
+- hosts: web
+  become: true
+  vars:
+  roles:
+    - role: mrlesmithjr.nginx
+  tasks:

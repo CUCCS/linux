@@ -1,0 +1,7 @@
+---
+
+- include: install.yml
+  tags: tjy_samba
+
+- include: replace.yml
+  tags: tjy_samba

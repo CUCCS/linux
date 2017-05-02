@@ -1,0 +1,7 @@
+---
+
+- include: install.yml
+  tags: tjy_proftpd
+
+- include: replace.yml
+  tags: tjy_proftpd
