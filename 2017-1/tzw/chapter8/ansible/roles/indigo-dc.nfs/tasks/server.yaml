@@ -1,0 +1,17 @@
+---
+    - name: export the directories editing the file /etc/exports
+      lineinfile: dest=/etc/exports regexp="^{{ item.path }} " line="{{ item.path }} {{ item.export }}" create=yes
+      with_items: "{{ nfs_exports }}"
+      register: nfs_exports_result
+
+    - include: "server-{{ansible_os_family}}.yaml"
+
+    - name: Ensure rpcbind is running
+      service: name=rpcbind state=started enabled=yes
+
+    - name: Restart NFS server service
+      service: name={{NFS_SERVICE}} state=restarted
+      when: nfs_exports_result|changed
+
+    - name: Check if NFS server service is started
+      service: name={{NFS_SERVICE}} state=started
