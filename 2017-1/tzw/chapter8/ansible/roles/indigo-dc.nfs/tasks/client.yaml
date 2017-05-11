@@ -1,0 +1,22 @@
+---
+    - name: update repositories cache and install NFS
+      apt: name=nfs-common update_cache=yes cache_valid_time=3600
+      when: "ansible_os_family == 'Debian'"
+
+    - name: update repositories cache and install NFS
+      yum: name=nfs-utils
+      when: "ansible_os_family == 'RedHat'"
+
+    - name: Ensure rpcbind is running
+      service: name=rpcbind state=started enabled=yes
+
+    - name: mount the shared directories
+      mount:
+        name: "{{ item.local }}"
+        src: "{{ item.server_host }}:{{ item.remote }}"
+        state: "{{ item.state | default('mounted') }}"
+        fstype: nfs
+        opts: "{{ item.opts | default(omit) }}"
+        dump: "{{ item.dump | default(omit) }}"
+        passno: "{{ item.passno | default(omit) }}"
+      with_items: "{{ nfs_client_imports }}"
