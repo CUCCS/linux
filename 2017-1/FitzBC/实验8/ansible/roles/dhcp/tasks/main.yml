@@ -1,0 +1,18 @@
+---
+- name: Install dhcpd package
+  apt: 
+    name: isc-dhcp-server
+    state: present
+
+- name: copy the dhcpd.conf
+  template: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf backup=yes
+
+- name: change isc-dhcp-server
+  shell: "sed -i '/^INTERFACES/d' /etc/default/isc-dhcp-server"
+  shell: "echo INTERFACES=\"$networkcard\">>/etc/default/isc-dhcp-server"
+
+- name: start the netcard  
+  shell: "ifconfig {{ networkcard }} up"
+  shell: "ifconfig {{ networkcard }} {{ dhcpserverip }} netmask 255.255.255.0"
+  notify: 
+    - restart dhcp

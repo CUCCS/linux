@@ -1,0 +1,13 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "cuc.edu.cn" {
+    type master;
+    file "/etc/bind/zones/db.cuc.edu.cn"; # zone file path
+    allow-transfer { 10.0.66.101; };         # ns2 private IP address - secondary
+};

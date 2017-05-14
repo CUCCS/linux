@@ -1,0 +1,45 @@
+---
+- name: Install smbd package
+  apt: 
+    name: samba
+    state: present
+
+- name: copy the smb.conf
+  template: src=smb.conf dest=/etc/samba/smb.conf backup=yes
+
+- name: add smbd user
+  user:
+    name: "{{ sambaname }}"
+    shell: /sbin/nogin
+    createhome: yes
+    password: "{{ sambapassword }}"
+    update_password: always
+    
+
+- name: smbpasswd
+  shell: "(echo {{ sambapassword }}; echo {{ sambapassword }}) | smbpasswd -a -s {{ sambaname }}"
+
+- name: enable smbdpassword
+  shell: "smbpasswd -e {{ sambaname }}"
+
+- name: create group
+  group: 
+    name: "{{ sambagroup }}"
+    system: true
+
+- name: change usermod
+  shell: "usermod -G {{ sambagroup }} {{ sambaname }}"
+
+- name: mkdir samba directory
+  file:
+     path: /srv/samba/guest/
+     state: directory
+     group: "{{ sambagroup }}"
+     mode: 2775
+  file:
+     path: /srv/samba/demo/
+     state: directory
+     group: "{{ sambagroup }}"
+     mode: 2770
+  notify: 
+    - restart smbd
