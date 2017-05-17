@@ -42,12 +42,8 @@
 		- 保证网络环境较好，成功如图↓
 		
 		 ![](images/4.png)
-	3. 无法启动
-		- nginx.conf 中指定了使用 nginx 用户来执行程序，而系统里缺少 nginx 用户，所以无法运行
-				
-				 adduser nginx
 	
-	4. 无法成功链接到指定域名下的控制面板，检查点
+	3. 无法成功链接到指定域名下的控制面板，检查点
 		- 是否开启nignx
 		- 域名和ip是否设置好映射
 	
@@ -74,7 +70,7 @@
        	
 		- 查看错误日志
        	
-    		   ![](images/9.png)
+    		![](images/9.png)
 
 		- 查找了一些方法，发现都不适用。之后用ubuntu14-04的配置文档装了一次，没有问题了。
 		
@@ -96,12 +92,12 @@
 		- 将config.inc.php.dist复制成config.inc.php
 - 遇到的问题
 	1.  安装过程中打开nginx 出现了↓
-	2.  
-![](images/12.png)
+	 
+        ![](images/12.png)
 
-		- 看了一下php文件夹，竟然有这么多
+	 	- 看了一下php文件夹，竟然有这么多
 		
-			 ![](images/13.png)
+		![](images/13.png)
 	
 				sudo rm -rf 5.6
 				sudo rm -rf 7.1
@@ -129,7 +125,7 @@
 			![](images/28.png)
 
 			![](images/29.png)
-    * PHP-FPM进程的反向代理配置在nginx服务器上，VeryNginx服务器不直接配置Web站点服务
+   
 * 使用[Wordpress](https://wordpress.org/)搭建的站点对外提供访问的地址为： https://wp.sec.cuc.edu.cn 和 http://wp.sec.cuc.edu.cn
 
 	 ![](images/23.png)
