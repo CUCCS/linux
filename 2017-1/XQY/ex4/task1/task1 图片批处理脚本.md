@@ -11,17 +11,17 @@
 
 ### step1 安装imagemagick
 
-![](pic-task1/install imagemagick1.PNG)
+![](pic-task1/install_imagemagick1.PNG)
 
-![](pic-task1/install imagemagick2.PNG)
+![](pic-task1/install_imagemagick2.PNG)
 
-![](pic-task1/install imagemagick3.PNG)
+![](pic-task1/install_imagemagick3.PNG)
 
 ### step2 创建.sh脚本文件
 
 >打开创建好的.sh文件，“a”输入编辑-->ESC-->“:wq”保存退出编辑
 
-![](pic-task1/create sh.PNG)
+![](pic-task1/create_sh.PNG)
 
 ### step3 使.sh文件可执行
 
