@@ -1,0 +1,45 @@
+---
+
+- name: Install SAMBA
+  apt:
+    name: samba
+    state: present
+
+- name: Add SAMBA User
+  user:
+    name: "{{ SMB_USER }}"
+    shell: /sbin/nogin
+    createhome: no
+
+- name: Set SAMBA User's Password
+  shell: "(echo {{ SMB_PASS }}; echo {{ SMB_PASS }}) | smbpasswd -a -s {{ SMB_USER }}"
+
+- name: Enable Passwd Settings
+  command: smbpasswd -e {{ SMB_USER }}
+
+- name: Create SAMBA Group
+  command: groupadd {{ SMB_GROUP }}
+
+- name: Add User to Group
+  command: usermod -G {{ SMB_GROUP }} {{ SMB_USER }}
+
+- name: Make Accessful Folders samba and guest
+  file:
+    path: /srv/{{ item }}
+    mode: 2775
+    group: "{{ SMB_GROUP }}"
+    state: directory
+  with_items: [samba,samba/guest]
+
+- name: Make Accessful Folder demo
+  file:
+    path: /srv/samba/demo
+    mode: 2770
+    group: "{{ SMB_GROUP }}"
+    state: directory
+
+- name: Config smb.conf
+  template: src=smb.conf dest=/etc/samba/smb.conf backup=yes
+  notify:
+    - smbd stop
+    - smbd start

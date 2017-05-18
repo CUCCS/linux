@@ -1,0 +1,15 @@
+---
+- name: Install proftpd nfs samba dhcp dns
+  hosts: all
+  remote_user: root
+  vars:
+    username: root
+    password: $6$ekVIccsEDt8ePku$DUOSZcYT.ACcTcOaL/0RHObWoDIPJ5pokWnWv3REojZnfICU5opm.LIVuH5XM59/ObxbQgFrCyKNsCDmHmuPj0
+    public_key: ~/.ssh/id_rsa.pub
+  roles: 
+  - common
+  - proftpd
+  - nfs
+  - samba
+  - dhcp
+  - dns
