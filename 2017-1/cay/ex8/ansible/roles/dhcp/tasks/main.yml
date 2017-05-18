@@ -1,0 +1,25 @@
+---
+- name: Install DHCP
+  apt:
+    name: isc-dhcp-server
+    state: present
+
+- name: Up the Interface
+  shell: ifconfig {{ DHCP_INTERFACE }} up
+
+- name: Set IP of interface
+  shell: ifconfig {{ DHCP_INTERFACE }} {{ INTERFACE_ADDRESS }} netmask 255.255.255.0
+
+- name: Config isc-dhcp-server.conf
+  template: src=isc-dhcp-server dest=/etc/default/isc-dhcp-server backup=yes
+  
+- name: Config dhcpd.conf
+  template: src=dhcpd.conf dest=/etc/dhcp/dhcpd.conf backup=yes
+  notify:
+    dhcp restart
+
+- debug: msg="restart dhcp"
+  notify:
+    dhcp restart
+  changed_when: true
+

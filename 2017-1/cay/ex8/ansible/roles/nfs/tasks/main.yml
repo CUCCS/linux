@@ -1,0 +1,20 @@
+---
+- name: Install NFS
+  apt:
+    name: nfs-kernel-server
+    state: present
+
+- name: Make NFS Accessful Path
+  file:
+    path: /var/nfs/general
+    owner: nobody
+    group: nogroup
+    state: directory
+
+- name: Config Exports
+  template: src=exports dest=/etc/exports backup=yes
+
+- debug: msg="restart nfs"
+  notify:
+    nfs-kernel-server restart
+  changed_when: true

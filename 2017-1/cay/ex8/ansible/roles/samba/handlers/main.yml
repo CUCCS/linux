@@ -1,0 +1,10 @@
+---
+- name: smbd stop
+  service: 
+    name: smbd
+    state: stoped
+
+- name: smbd start
+  service:
+    name: smbd
+    state: started
