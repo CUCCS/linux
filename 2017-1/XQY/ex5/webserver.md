@@ -75,7 +75,7 @@ sudo systemctl restart nginx
 ```
 allow_url_include=Off-->allow_url_include=On
 ```
-####安装成功
+#### 安装成功
 
 ![](pic/dvwa.png)
 
