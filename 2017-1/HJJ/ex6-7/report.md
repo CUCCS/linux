@@ -52,4 +52,4 @@
 * 实现效果
   * dns服务器域名解析文件![](image/dns.png)
   * 客户端配置文件![](image/client-dns.png)
-  * 测试域名效果![](image/dig.PNG)![](image/dig2.png)
+  * 测试域名效果![](image/dig.png)![](image/dig2.png)
