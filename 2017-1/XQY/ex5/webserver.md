@@ -24,30 +24,30 @@ wordpress：［NAT网络：10.0.2.15］
 sudo apt-get update
 sudo apt-get install nginx
 ```
-![](pic/nginx.PNG)
+![](pic/nginx.png)
 
 2.克隆VeryNginx到本地之前注意查验是否安装git
 
-![](pic/git.PNG)
+![](pic/git.png)
 
 3.启动verynginx时产生如下图报错，经查阅资料和多次试验，可尝试查看nginx进程号，杀掉nginx进程
 ```
 ps aux | grep nginx
 sudo kill -9 进程号
 ```
-![](pic/start_problem.PNG)
+![](pic/start_problem.png)
 
 4.如果需要重启nginx或verynginx，不要执行指南中所给reload指令，否则会产生如下图报错，经验证，建议使用以下指令
 ```
 sudo systemctl restart nginx
 ```
-![](pic/reload_error.PNG)
+![](pic/reload_error.png)
 
 #### 安装成功
 
-![](pic/success1.PNG)
+![](pic/success1.png)
 
-![](pic/success2.PNG)
+![](pic/success2.png)
 
 ### 二、安装WordPress
 
@@ -61,7 +61,7 @@ sudo systemctl restart nginx
 
 3.及时备份。在安装过程中数次出现如下错误，截止目前还没有找到相关资料能够有效解决
 
-![](pic/code_error.PNG)
+![](pic/code_error.png)
 
 ### 三、安装DVWA
 
@@ -77,7 +77,7 @@ allow_url_include=Off-->allow_url_include=On
 ```
 ####安装成功
 
-![](pic/dvwa.PNG)
+![](pic/dvwa.png)
 
 ## 小结
 
