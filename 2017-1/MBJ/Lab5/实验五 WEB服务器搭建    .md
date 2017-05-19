@@ -23,10 +23,10 @@
 `sudo apt-get install build-essential libssl-dev libpcre3-dev`  
 
 4.一键安装 VeryNginx 和 以及依赖的 OpenResty  
-`python install.py install`
+`python install.py install`  
 【注意】要cd转到VeryNginx目录下，并用sudo安装  
 
-![](image/VeryNginx.png)
+![](image/安装VeryNginx.png)
 
 5.将/opt/verynginx/openresty/nginx/conf/nginx.conf文件下的user nginx修改为user www-data  
 
@@ -41,6 +41,7 @@
 
  
 详细过程参照 [VeryNginx安装配置](https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md)
+  
 故障排除参照 [VeryNginx故障排除](https://github.com/alexazhou/VeryNginx/wiki/Trouble-Shooting)  
 
   
@@ -209,8 +210,11 @@
 * 整个实验过程中，还遇到很多很多很多的小问题，在请教各位大神的过程中得到解决。很多时候，明明执行的命令都能成功，最终就是打不开，或者出现很多莫名其妙的问题，实验环境的搭建真的耗尽心力，一度想要放弃。不过最终在努力下还是成功搭建，也让我恢复了信心，完成之后的实验任务。
 * 本次实验主要参考的实验报告如下：  
   [赵嘉懿实验5报告](https://github.com/Zhaojytt/linux/blob/master/2017-1/zjy/exp5/exp5实验报告.md)
+    
   [陈安莹实验5报告](https://github.com/CUCCS/linux/blob/master/2017-1/cay/ex5/实验报告5.md)
+    
   [罗慧玉实验5报告](https://github.com/CUCCS/linux/blob/master/2017-1/lhy/task5/搭建webserver.md)
+    
   [陶泽威实验5报告](https://github.com/CUCCS/linux/blob/master/2017-1/tzw/chapter5/web搭建实验报告.md)
   非常感谢各位同学！  
   
@@ -218,10 +222,15 @@
 ##   参考链接  
 
 [VeryNginx安装配置文档](https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md)  
+  
 [VeryNginx故障排除文档](https://github.com/alexazhou/VeryNginx/wiki/Trouble-Shooting)  
+  
 [LEMP安装配置](https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04)  
+  
 [创建自签发SSL证书](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04)  
+  
 [WordPress安装配置](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-lemp-on-ubuntu-16-04)
+  
 [DVWA指导手册](https://www.youtube.com/watch?v=1C51jmFRXKw)
 
 
