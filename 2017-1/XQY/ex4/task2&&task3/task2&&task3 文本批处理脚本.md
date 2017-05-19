@@ -36,23 +36,23 @@
 
 #### 统计访问来源主机TOP 100和分别对应出现的总次数
 
-![](pic-task2&&task3/tsv-g.PNG)
+![](pic-task2&&task3/web-g.PNG)
 
 #### 统计访问来源主机TOP 100的IP和分别对应出现的总次数
 
-![](pic-task2&&task3/tsv-i.PNG)
+![](pic-task2&&task3/web-i.PNG)
 
 #### 统计最频繁被访问的URL TOP 100
 
-![](pic-task2&&task3/tsv-u.PNG)
+![](pic-task2&&task3/web-u.PNG)
 
 #### 统计不同响应状态码的出现次数和对应百分比
 
-![](pic-task2&&task3/tsv-c.PNG)
+![](pic-task2&&task3/web-c.PNG)
 
 #### 给定url输出TOP 100访问来源主机
 
-![](pic-task2&&task3/tsv-s.PNG)
+![](pic-task2&&task3/web-s.PNG)
 
 #### 特别鸣谢：本实验tsv.sh和web.sh代码提供者谭嘉怡同学～
 
