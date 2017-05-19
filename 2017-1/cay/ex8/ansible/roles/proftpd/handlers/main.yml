@@ -1,0 +1,4 @@
+---
+
+- name: proftpd restart
+  service: name=proftpd state=restarted

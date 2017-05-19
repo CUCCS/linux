@@ -1,0 +1,7 @@
+---
+# roles/common/tasks/main.yml
+
+- name: Update Apt
+  apt: update_cache=yes
+  notify:
+    - apt is up-to-date
