@@ -70,7 +70,7 @@ function position_analy
 
 	for n in ${num[@]}
 	do
-	    b["$i"]=$(echo "scale=3; 100*$n / $sum "|bc)
+	    b["$i"]=$(echo "scale=3; *$n / $sum "|bc)
 
  	    i=$((i+1))
 	done
