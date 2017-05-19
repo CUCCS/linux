@@ -36,7 +36,7 @@
 
 #### 统计访问来源主机TOP 100和分别对应出现的总次数
 
-![](pic-task2&&task3/web-g.PNG)
+![](pic-task2&&task3/web-h.PNG)
 
 #### 统计访问来源主机TOP 100的IP和分别对应出现的总次数
 
