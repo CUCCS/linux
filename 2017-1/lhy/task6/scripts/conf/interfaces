@@ -1,0 +1,22 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto HOST_ONLY_INTER
+iface HOST_ONLY_INTER inet dhcp
+
+auto NAT_INTER
+iface NAT_INTER inet dhcp
+
+auto INTERNAL_INTER
+iface INTERNAL_INTER inet static
+address INTERNAL_IP
+netmask INTERNAL_NETMASK
+gateway INTERNAL_IP
+    
