@@ -26,9 +26,8 @@
 `python install.py install`
 【注意】要cd转到VeryNginx目录下，并用sudo安装  
 
-![安装VeryNginx](media/14948192761518/%E5%AE%89%E8%A3%85VeryNginx.png)
+![](image/VeryNginx.png)
 
-  
 5.将/opt/verynginx/openresty/nginx/conf/nginx.conf文件下的user nginx修改为user www-data  
 
 6.启动服务
@@ -36,9 +35,9 @@
 
 * 搭建成功  
 
-![25](media/14948192761518/25.png)
+![](image/25.png)
 
-![26](media/14948192761518/26.png)
+![](image/26.png)
 
  
 详细过程参照 [VeryNginx安装配置](https://github.com/alexazhou/VeryNginx/blob/master/readme_zh.md)
@@ -62,10 +61,10 @@
        
 5.搭建成功  
 
-![1](media/14948192761518/1.png)
+![](image/1.png)
 
 
-![2](media/14948192761518/2.png)
+![](image/2.png)
 
 
 * DVWA  
@@ -83,11 +82,11 @@
 
 未修改配置/etc/php/7.0/fpm/php.ini之前  
 
-![3](media/14948192761518/3.png)
+![](image/3.png)
 
 修改之后  
 
-![4](media/14948192761518/4.png)
+![](image/4.png)
   
   
 ## 实验要求    
@@ -99,28 +98,28 @@
   
 * Up Stream，Proxy Pass  
 
-![5](media/14948192761518/5.png)  
+![](image/5.png)  
   
   * Matcher  
 
-![6](media/14948192761518/6.png)
+![](image/6.png)
   
-![7](media/14948192761518/7.png)
+![](image/7.png)
   
   * 配置hosts文件  
     
-![8](media/14948192761518/8.png)
+![](image/8.png)
 
-![9](media/14948192761518/9.png)
+![](image/9.png)
 
 2.使用Wordpress搭建的站点对外提供访问的地址为：    
    https://wp.sec.cuc.edu.cn 和 http://wp.sec.cuc.edu.cn  
    
-![10](media/14948192761518/10.png)
+![](image/10.png)
 
 3.使用Damn Vulnerable Web Application (DVWA)搭建的站点对外提供访问的地址为： http://dvwa.sec.cuc.edu.cn  
 
-![11](media/14948192761518/11.png)
+![](image/11.png)
 
 
 ### 安全加固要求
@@ -128,37 +127,37 @@
   
   * Matcher  
 
-![12](media/14948192761518/12.png)
+![](image/12.png)
 
   * Response  
 
-![13](media/14948192761518/13.png)
+![](image/13.png)
 
   * Filter  
   
-  ![14](media/14948192761518/14.png)
+![](image/14.png)
 
 * 结果  
 
-![15](media/14948192761518/15.png)
+![](image/15.png)
 
 2.Damn Vulnerable Web Application (DVWA)只允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-2  
   
   * Matcher
   
-![16](media/14948192761518/16.png)
+![](image/16.png)
 
   * Response  
 
-![17](media/14948192761518/17.png)
+![](image/17.png)
 
   * Filter  
   
-![18](media/14948192761518/18.png)
+![](image/18.png)
   
 * 结果  
 
-![19](media/14948192761518/19.png)
+![](image/19.png)
 
 3.在不升级Wordpress版本的情况下，通过定制VeryNginx的访问控制策略规则，热修复WordPress < 4.7.1 - Username Enumeration
   
@@ -166,23 +165,23 @@
  
   * Matcher  
   
-  ![20](media/14948192761518/20.png)
+  ![](image/20.png)
 
   * Filter  
 
-  ![21](media/14948192761518/21.png)
+  ![](image/21.png)
 
 4.通过配置VeryNginx的Filter规则实现对Damn Vulnerable Web Application (DVWA)的SQL注入实验在低安全等级条件下进行防护       
   
   * 先把DVWA安全保护级别改为低  
 
-![22](media/14948192761518/22.png)
+  ![](image/22.png)
   
   * 配置VeryNginx  
 
-  ![23](media/14948192761518/23.png)
+  ![](image/23.png)
 
-![24](media/14948192761518/24.png)
+![](image/24.png)
 
 ### VERYNGINX配置要求
 1.VeryNginx的Web管理页面仅允许白名单上的访客来源IP，其他来源的IP访问均向访客展示自定义的友好错误提示信息页面-3
@@ -201,11 +200,11 @@
 * 在安装WordPress的过程中，进行完之前的一系列操作之后，无法打开安装页面，后来重新顺了一遍，发现时中间修改的配置文件没有被保存。
 * 在访问WordPress时，不知道为什么地址总是自动跳转成192.168.56.10，问了安莹小姐姐，她之前也遇到过这个问题，说是WordPress会记住第一次访问的地址，所以才会出现跳转，在她的帮助下修改数据库得到解决。
 
-![27](media/14948192761518/27.png)
+![](image/27.png)
   
-![28](media/14948192761518/28.png)
+![](image/28.png)
   
-![29](media/14948192761518/29.png)
+![](image/29.png)
 
 * 整个实验过程中，还遇到很多很多很多的小问题，在请教各位大神的过程中得到解决。很多时候，明明执行的命令都能成功，最终就是打不开，或者出现很多莫名其妙的问题，实验环境的搭建真的耗尽心力，一度想要放弃。不过最终在努力下还是成功搭建，也让我恢复了信心，完成之后的实验任务。
 * 本次实验主要参考的实验报告如下：  
