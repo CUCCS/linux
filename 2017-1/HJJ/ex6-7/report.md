@@ -8,10 +8,10 @@
     [ ] 匿名访问权限仅限白名单IP来源用户访问，禁止白名单IP以外的访问；
     [ ] （可选加分任务）使用FTPS服务代替FTP服务，上述所有要求在FTPS服务中同时得到满足；
 * 实现效果
-  * 匿名访问![](image/1.PNG)
+  * 匿名访问![](image/1.png)
   * 用户名访问![](image/2.png)
-  * 根目录不允许写，不允许越权访问![](image/3.PNG)
-  * 该账号不能用于shell登录![](image/4.PNG)
+  * 根目录不允许写，不允许越权访问![](image/3.png)
+  * 该账号不能用于shell登录![](image/4.png)
   * 白名单和黑名单——通过hosts.allow和hosts.deny进行控制
   * 在hosts.allow和hosts.deny中做限制
 		
@@ -29,27 +29,27 @@
         上述共享目录中文件、子目录的属主、权限信息和在NFS服务器端上查看到的信息一样吗？无论是否一致，请给出你查到的资料是如何讲解NFS目录中的属主和属主组信息应该如何正确解读
 	[ ] （可选加分任务）在客户端或NFS服务器上抓包分析使用NFS协议时的远程文件下载、上传、移动、删除等操作是否是明文？远程的文件传输数据流是否可以被恢复出完整的传输文件？
 * 实现效果
-  * 在服务器上配置好后，在客户端机器上进行挂载![](image/mount.PNG)
-  * 挂载信息![](image/df.PNG)
-  * 拥有读写权限的挂载目录![](image/nfs.PNG)
-  * 只拥有读权限的挂载目录![](image/nfs-r.PNG)  
+  * 在服务器上配置好后，在客户端机器上进行挂载![](image/mount.png)
+  * 挂载信息![](image/df.png)
+  * 拥有读写权限的挂载目录![](image/nfs.png)
+  * 只拥有读权限的挂载目录![](image/nfs-r.png)  
   验证![](image/ro.PNG)
 
 # DHCP
 
 * 实现效果
   * 通过虚拟机内部网络实现
-  * dhcp服务器配置信息![](image/5.PNG) 
-  * 客户端分配得到IP![](image/6.PNG) 
+  * dhcp服务器配置信息![](image/5.png) 
+  * 客户端分配得到IP![](image/6.png) 
 
 # Samba
 
 * 实现效果
-  * 这个实验我手工配置了linux上的服务器，但根据demo配置文件，在客户端连接需要的是windows服务器所以发生了报错![](image/windows-error.PNG) 
+  * 这个实验我手工配置了linux上的服务器，但根据demo配置文件，在客户端连接需要的是windows服务器所以发生了报错![](image/windows-error.png) 
   * 而如果需要脚本的自动化配置，就需要涉及windows系统的自动部署，所以这一块暂时没有完成
 
 # DNS
 * 实现效果
-  * dns服务器域名解析文件![](image/dns.PNG)
-  * 客户端配置文件![](image/client-dns.PNG)
-  * 测试域名效果![](image/dig.PNG)![](image/dig2.PNG)
+  * dns服务器域名解析文件![](image/dns.png)
+  * 客户端配置文件![](image/client-dns.png)
+  * 测试域名效果![](image/dig.PNG)![](image/dig2.png)
