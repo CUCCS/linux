@@ -1,0 +1,34 @@
+---
+- name: Install dns package
+  apt: 
+    name: bind9
+    state: present
+- name: Install bind9utils
+  apt: 
+    name: bind9utils
+    state: present
+- name: Install bind9-doc
+  apt: 
+    name: bind9-doc
+    state: present
+
+- name: change /etc/default/bind9 
+  shell: "sed -i '/^OPTIONS/d' /etc/default/bind9"
+  shell: "echo OPTIONS=\"-4 -u bind\">>/etc/default/bind9"
+
+- name: copy the named.conf.options
+  template: src=named.conf.options dest=/etc/bind/named.conf.options backup=yes
+
+- name: copy the named.conf.local
+  template: src=named.conf.local dest=/etc/bind/named.conf.local backup=yes
+
+- name: mkdir /etc/bind/zones
+  file:
+     path: /etc/bind/zones
+     state: directory
+
+- name: copy the /etc/bind/zones/db.cuc.edu.cn
+  template: src=db.cuc.edu.cn dest=/etc/bind/zones/db.cuc.edu.cn
+
+  notify: 
+    - restart vsftpd

@@ -1,0 +1,17 @@
+---
+- name: Install nfs package 
+  apt: 
+    name: nfs-kernel-server
+    state: present
+- name: copy the exports
+  template: src=exports dest=/etc/exports backup=yes
+
+- name: mkdir nfs directory
+  file:
+     path: /home/{{ ftpnfsuser }}/nfs
+     state: directory
+  file:
+     path: /home/{{ ftpnfsuser }}/nfs1
+     state: directory
+  notify: 
+    - restart nfs
