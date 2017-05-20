@@ -23,16 +23,16 @@
 >>>桥接网卡：192.168.1.117
 
 
-![wordpress](/Users/admin/Desktop/image/wordpress.png)
+![wordpress](image/wordpress.png)
 
-![Verynginx](/Users/admin/Desktop/image/VeryNginx.png)
+![Verynginx](image/VeryNginx.png)
 
-![nginx](/Users/admin/Desktop/image/nginx.png)
+![nginx](image/nginx.png)
 ##基本配置
 
 * VeryNginx作为反向代理
 
-![proxy pass](/Users/admin/Desktop/image/proxy pass.png)
+![proxy pass](image/proxy pass.png)
 
 * Up Stream
   
@@ -48,5 +48,5 @@
   * UpStream：目标站点的节点集合。
   * Matcher：根据规则限定访问目标地址.
 
-![matcher](/Users/admin/Desktop/image/matcher.png) 
+![matcher](image/matcher.png) 
 
