@@ -1,0 +1,22 @@
+
+先执行环境3里的三个安装命令，否则会提示no gmake
+ssl参考地址
+https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04
+
+
+wordpress 密码kUvhHfoz!MGA6c!Z5U
+
+
+
+REATE USER wordpressuser@localhost IDENTIFIED BY 'password';
+At this point, you have a database and a user account, each made specifically for WordPress. However, these two components have no relationship yet. The user has no access to the database.
+
+Let's fix that by granting our user account access to our database with this command:
+
+GRANT ALL PRIVILEGES ON wordpress.* TO wordpressuser@localhost;
+Now the user has access to the database. We need to flush the privileges so that the current instance of MySQL knows about the recent privilege changes we've made:
+
+FLUSH PRIVILEGES;
+We're all set now. We can exit out of the MySQL prompt by typing:
+
+exit
