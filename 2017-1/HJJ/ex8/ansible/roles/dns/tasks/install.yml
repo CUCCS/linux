@@ -1,0 +1,6 @@
+---
+
+- name: install bin9
+  apt:
+     name: bind9
+     state: present
