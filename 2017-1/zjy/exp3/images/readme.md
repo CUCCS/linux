@@ -1,1 +1,0 @@
-### asciinema封面图

@@ -1,4 +1,0 @@
----
-- name: apt is up-to-date
-  debug: msg="apt is up-to-date."
-  

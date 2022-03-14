@@ -1,8 +1,0 @@
----
-    - name: update repositories cache and install NFS in RedHat systems
-      yum: name=nfs-utils
-
-    - set_fact: NFS_SERVICE="nfs"
-
-    - set_fact: NFS_SERVICE="nfs-server"
-      when: ansible_distribution_major_version == "7"

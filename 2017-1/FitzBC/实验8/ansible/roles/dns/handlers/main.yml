@@ -1,3 +1,0 @@
----
-- name: restart dns server
-  service: name=bind9 state=restarted

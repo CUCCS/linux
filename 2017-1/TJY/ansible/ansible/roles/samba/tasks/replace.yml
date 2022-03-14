@@ -1,7 +1,0 @@
----
-
-- name: alter and copy smb.conf
-  template: src=smb.conf dest=/etc/samba/smb.conf backup=yes
-  notify:
-    - smbd stop
-    - smbd start

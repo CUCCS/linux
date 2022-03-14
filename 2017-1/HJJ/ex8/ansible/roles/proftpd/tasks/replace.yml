@@ -1,6 +1,0 @@
----
-
-- name: alter and copy proftpd.conf
-  template: src=proftpd.conf dest=/etc/proftpd/proftpd.conf backup=yes
-  notify:
-    - proftpd restart

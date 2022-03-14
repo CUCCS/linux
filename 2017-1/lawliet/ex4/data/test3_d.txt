@@ -1,9 +1,0 @@
-Responce code:
-
-code:200   times: 1398987    proportion 89.11%
-code:304   times: 134146    proportion 8.54%
-code:302   times: 26497    proportion 1.68%
-code:404   times: 10055    proportion .64%
-code:403   times: 171    proportion .01%
-code:501   times: 27    proportion 0%
-code:500   times: 3    proportion 0%

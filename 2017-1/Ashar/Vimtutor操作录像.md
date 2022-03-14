@@ -1,1 +1,0 @@
-[Vimtutor 操作录像](https://asciinema.org/~SummerBar)

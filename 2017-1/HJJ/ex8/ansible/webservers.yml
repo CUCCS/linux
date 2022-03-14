@@ -1,9 +1,0 @@
----
-
-- hosts: webservers
-  roles:
-    - proftpd
-    - nfs
-    - samba
-    - dhcp
-    - dns

@@ -1,2 +1,0 @@
-- name: restart idmapd
-  service: name=idmapd state=restarted
